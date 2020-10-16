@@ -34,4 +34,3 @@ jobs:
         run: docker build . --file Dockerfile --tag limeyman/wlliterpickers:latest
       - name: Push the latest Docker image
         run: docker push limeyman/wlliterpickers:latest
-   
