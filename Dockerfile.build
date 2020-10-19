@@ -1,0 +1,17 @@
+FROM node:10.15.3
+
+# Create app directory
+WORKDIR /home/node/app
+
+COPY wl-litter-picking/package*.json ./
+
+RUN CI=true
+
+RUN npm install
+
+# Bundle app source
+COPY wl-litter-picking/. .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]    
