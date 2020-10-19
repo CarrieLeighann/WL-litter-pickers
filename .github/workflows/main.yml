@@ -28,11 +28,11 @@ jobs:
         run: pwd && ls
       - name: Get the version
         id: vars
-        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:5})
       - name: Build the tagged Docker image v2
         run: docker build --tag limeyman/wlliterpickers:$SHA5 -f Dockerfile.build .
       - name: Push the tagged Docker image
-        run: docker push limeyman/wlliterpickers:v1
+        run: docker push limeyman/wlliterpickers:${{steps.vars.outputs.tag}}
       - name: Build the latest Docker image
         run: docker build --tag limeyman/wlliterpickers:latest -f Dockerfile.build .
       - name: Push the latest Docker image
