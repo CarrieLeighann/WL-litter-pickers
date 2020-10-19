@@ -1,14 +1,24 @@
 .App {
-  height: 85vh;
+  height: 100%;
 }
-#mapid { height: inherit }
+#mapid { height: inherit; width: 80%; }
 
 .headerSection {
   display: flex;
   align-items: center;
+  margin-left: 20%;
 }
 
 .headerSection button {
   margin: 5px 10px;
   height: 50px;
+}
+
+.mapData {
+  height: 75vh;
+  display: flex;
+}
+
+.sidebar {
+  width: 20%;
 }
