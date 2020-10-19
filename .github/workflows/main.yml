@@ -17,7 +17,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     env:
-      SHA5: ${GITHUB_SHA:5}
+      SHA12: ${GITHUB_SHA::12}
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -30,9 +30,9 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:5})
       - name: Build the tagged Docker image v2
-        run: docker build --tag limeyman/wlliterpickers:$SHA5 -f Dockerfile.build .
+        run: docker build --tag limeyman/wlliterpickers:$SHA12 -f Dockerfile.build .
       - name: Push the tagged Docker image
-        run: docker push limeyman/wlliterpickers:$SHA5
+        run: docker push limeyman/wlliterpickers:$SHA12
       - name: Build the latest Docker image
         run: docker build --tag limeyman/wlliterpickers:latest -f Dockerfile.build .
       - name: Push the latest Docker image
