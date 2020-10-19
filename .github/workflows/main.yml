@@ -29,10 +29,10 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Build the tagged Docker image v2
-        run: docker build --tag limeyman/wlliterpickers:v1 -f Dockerfile.build
+        run: docker build --tag limeyman/wlliterpickers:v1 -f Dockerfile.build .
       - name: Push the tagged Docker image
         run: docker push limeyman/wlliterpickers:v1
       - name: Build the latest Docker image
-        run: docker build -tag limeyman/wlliterpickers:latest -f Dockerfile.build
+        run: docker build --tag limeyman/wlliterpickers:latest -f Dockerfile.build .
       - name: Push the latest Docker image
         run: docker push limeyman/wlliterpickers:latest
