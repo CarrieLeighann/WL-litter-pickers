@@ -5,6 +5,8 @@ WORKDIR /home/node/app
 
 COPY wl-litter-picking/package*.json ./
 
+RUN CI=true
+
 RUN npm install
 
 # Bundle app source
