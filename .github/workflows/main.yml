@@ -33,6 +33,6 @@ jobs:
       - name: Push the tagged Docker image
         run: docker push limeyman/wlliterpickers:v1
       - name: Build the latest Docker image
-        run: docker build . --tag limeyman/wlliterpickers:latest
+        run: docker build --tag limeyman/wlliterpickers:latest .
       - name: Push the latest Docker image
         run: docker push limeyman/wlliterpickers:latest
