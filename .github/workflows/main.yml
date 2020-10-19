@@ -27,7 +27,7 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Output path
-        run: ls && cd wl-litter-picking && ls
+        run: ls
       - name: Build the tagged Docker image
         run: docker build . --file wl-litter-picking/Dockerfile --tag limeyman/wlliterpickers:v1
       - name: Push the tagged Docker image
